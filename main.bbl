@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Pfurtscheller(2007)}]{Pfurtscheller2007}
+\bibinfo{author}{R.~S. A. S. F. L. H. B. J. J.~G. Pfurtscheller},
+\newblock \bibinfo{title}{The self-paced graz brain-computer interface: Methods
+  and applications},
+\newblock \bibinfo{journal}{Hindawi Publishing Corporation Computational
+  Intelligence and Neuroscience}  (\bibinfo{year}{2007}).
+
+\end{thebibliography}
