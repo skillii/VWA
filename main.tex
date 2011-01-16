@@ -127,6 +127,14 @@ Dabei werden EMG und EOG Artefakte behandelt.
 
 %% MSC codes here, in the form: \MSC code \sep code
 %% or \MSC[2008] code \sep code (2000 is the default)
+Artefaktkorrektur
+\sep EMG
+\sep EOG
+\sep BSS
+\sep Differential Method
+\sep Least Square Method
+\sep Inverse Filtering
+\sep Morphological Component Analysis
 
 \end{keyword}
 
@@ -147,9 +155,10 @@ den Signalverläufen Störeinflüsse überlagert sind.
 Solche Störeinflüsse sind unter anderem EOG- bzw. EMG-Artefakte. 
 Unter EOG Artefakten versteht man die Störungen, welche durch Augenbewegungen hervorgerufen werden.
 Sie entstehen, durch eine permanente Potentialdifferenz von ca. 10-30mV zwischen Vorder- und Hinterseite
-des Auges. \cite{Chen2004} Das Bewegen der Augen führt somit zu Störungen, welche dem EEG Signal überlagert sind.
+des Auges\cite{Chen2004}. Das Bewegen der Augen führt somit zu Störungen, welche dem EEG Signal überlagert sind.
 EMG schließt sämtliche andere Muskelaktivitäten mit ein. Ein Beispiele für solche Artefakte sind
 Kauen, Schlucken, Athemzüge, den Kopf oder die Stirn bewegen.
+
 In erster Linie wird man einmal versuchen die Bereiche, in denen Störeinflüsse überlagert sind, ausfindig zu machen.
 Eine simple Lösung wäre es, diese zeitlichen Bereiche schlicht und einfach zu ignorieren. Dadurch verliert man
 sehr viele wertvolle Information. Aus diesem Grund ist man natürlich bemüht die Überlagerten Störungen herauszufiltern.
@@ -171,6 +180,7 @@ verwendet wird.
 
 Das Filter hat dabei folgende mathematische Struktur, wobei $v_t$ das Gauss-Verteilte Rauschen, $y_t$ der
 Filterausgang zum Zeitpunkt $t$ und $a_i$ die Filterkoeffizienten sind:
+~\cite{Pfurtscheller2007}
 
 \begin{equation}
 y_t = \sum_i a_i \cdot y_{t-i} + v_t
@@ -197,19 +207,19 @@ Nun kann man die Signale welche den Chraracter einer Muskelaktivität aufweisen 
 
 Bei dieser Methode wird das gemessene EEG-Signal ($y(n)$) als Superposition des EOG-Signals ($u(n)$) und dem echten EEG-Signals
  ($w(n)$) betrachtet. Man misst dabei das EEG-Signal ($y(n)$) und das EOG-Signal ($u(n)$). Die Amplitude des Störsignals ist wesentlich höher als die des
- echten EEG-Signals. Es wird nun das EEG signal wie eine störung behandelt, wie in \ref{eq:LS-Method} zu sehn ist. Man verwendet nun die Methode der Kleinsten
- Quadratet um den Faktor $b_i$ zu berechnen! Mit den nun bekannten Faktoren kann man das echte EEG-Signal ($w(n)$) berechnen.
-(In der Berechnung muss man die Zeit $t$ diskret darstellen, was wir mit $n$  machen.)~\cite{Thulasidas2004}
+ echten EEG-Signals. Es wird nun das EEG-Signal wie eine Störung behandelt, wie in Gleichung~\ref{eq:LS-Method} zu sehen ist. Man verwendet nun die Methode der kleinsten
+ Quadrate um den Faktor $b_i$ zu berechnen! Mit den nun bekannten Faktoren kann man das echte EEG-Signal ($w(n)$) berechnen.
+(In der Berechnung wird die Zeit diskretisiert und mit $n$ dargestellt.)~\cite{Thulasidas2004}
 \begin{equation} \label{eq:LS-Method}
  y(n) =  \sum_{i=1}^{N} b_i * u_i(n) + w(n)
 \end{equation}
 
-Man hat dazu aber folgende (vereinfachenede) Annahmen treffen müssen:
+Man muss dazu aber folgende (vereinfachte) Annahmen treffen \cite{Thulasidas2004}:
 \begin{itemize}
- \item Das echte EEG Korreliert nicht mit weißem Rauschen
- \item Faktor $b_i$ ist Frequenz und Zeit unabhängig.
+ \item Das echte EEG ist frei von Gleichanteilen
+ \item Faktor $b_i$ ist Frequenz- und Zeitunabhängig.
  \item EOG- und echtes EEG-Signal sind voneinander unabhängig.
- \item Alle Artefakte haben den selben $b_i$ faktor.
+ \item Alle Artefakte haben den selben Faktor  $b_i$ .
 \end{itemize}
 
 
@@ -217,7 +227,7 @@ Man hat dazu aber folgende (vereinfachenede) Annahmen treffen müssen:
 
 \subsection{DM - Differential Method}
 
-Die Differenz Methode leitet sich von der LS-Methode ab. Durch diese Methode beseitigt man die Zeitliche abhängigkeit der aufeinanderfolgenden Samples(Daten).
+Die Differenz Methode leitet sich von der LS-Methode ab. Durch diese Methode beseitigt man die zeitliche Abhängigkeit der aufeinanderfolgenden Samples.
 ~\cite{Thulasidas2004}
 \begin{equation} \label{eq:DM}
  y(n) = y(n - 1) + \sum_{i=0}^{N}  b_i * (u_i(n) - u(n - 1)) + w(n) - w(n - 1)
@@ -226,10 +236,9 @@ Die Differenz Methode leitet sich von der LS-Methode ab. Durch diese Methode bes
 
 
 \subsection{BSS - Blind Source Seperation}
-Die gemessenen EEG-Daten ($Y$-Matrix) werden in ihre Komponenten zerlegt in dem man sie mit einer speziellen (Dreh)-Matrix $W$ multipliziert \ref{eq:BSS}.
-Es werden die EOG-Artefakte identifiziert indem man die Korrlation mit den gemessenen EOG-Signaldaten  berechnent. Die Komponenten die mit EOG-Signalen übereinstimmen werden
+Die gemessenen EEG-Daten ($Y$-Matrix) werden in ihre Komponenten zerlegt in dem man sie mit einer speziellen (Dreh)-Matrix $W$ multipliziert (siehe Gleichung \ref{eq:BSS}).
+Es werden die EOG-Artefakte identifiziert, indem man die Korrlation mit den gemessenen EOG-Signaldaten berechnent. Die Komponenten die mit EOG-Signalen übereinstimmen werden
 verworfen. Aus den übrigenen Komponeneten werden nun die EEG-Daten ohne Störungen wieder zusammengesetzt.
-$W$
 ~\cite{Thulasidas2004}
 
 \begin{equation} \label{eq:BSS}
@@ -239,13 +248,16 @@ $W$
 
 \section{Conclusion and Discussion}
 Bei der LS-Methode sinkt die Erkennungsrate, was durch die Annahme von bestimmten Bedingungen die nicht zutreffen, erklärt werden kann.
- Ein Beispiel dafür wäre die Unabhängigkeit von zeitlich aufeinaderfolgenede Samples annzunehmen.
+Ein Beispiel dafür wäre, die Unabhängigkeit von zeitlich aufeinaderfolgenede Samples, annzunehmen.
 
-In der Differnz Methode wird dies beachtet und korrigiert, was merkliche auswirkungen auf die Erkennungsrate hat.
+In der Differnz Methode wird dies beachtet und korrigiert, was merkliche Auswirkungen auf die Erkennungsrate hat.
 
-Die BSS Methode funktioniert am besten da man hier am wennigsten (vereinfachende) annahmen machen muss, allerdings geht das auf kosten der
- berechnungszeit und der Allgorithmus komplexität.
-Das macht diese methode schwierig zum einsetz für ein online Implementierungen.
+Die BSS Methode funktioniert am Besten da man hier am wennigsten (vereinfachende) Annahmen machen muss. Allerdings geht das auf Kosten der
+Berechnungszeit und der Algorithmuskomplexität.
+Desshalb ist diese Methode eher weniger für Online-Implementierungen geeignet.
+
+Ein direkter Leistungsvergleich der genannten Methode ist schwierig durchführbar, da sich die Methoden für 
+Artefakte unterschiedlichen Ursprungs, unterschiedlich gut eignen. Eine Kombination mehrerer Methoden ist denkbar.
 
 
 Mit den derzeit eingesetzten Methoden ist leider noch keine hundertprozentige Erkennung bzw. Entfernung von Artefakten möglich,
