@@ -173,7 +173,10 @@ y_t = \sum_i a_i \cdot y_{t-i} + v_t
 \end{equation}
 
 Möchte man nun herausfinden, ob ein EEG-Signalverlauf mit EMG Artefakten kontaminiert ist, verwendet man die Inverse
-des vorhin beschriebenen Filters und wendet sie auf den Signalverlauf an.
+des vorhin beschriebenen Filters und wendet sie auf den Signalverlauf an. Dieses Ergebnis liefert nun einen Rest.
+Überschreitet der RMS dieses Signals einen bestimmten Schwellenwert, so kann man einen bestimmten Bereich als Artefakt markieren.
+~\cite{Pfurtscheller2007}
+
 
 
 
