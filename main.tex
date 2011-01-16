@@ -176,19 +176,13 @@ Möchte man nun herausfinden, ob ein EEG-Signalverlauf mit EMG Artefakten kontam
 des vorhin beschriebenen Filters und wendet sie auf den Signalverlauf an.
 
 
-
-
-
-\section{Methods}
-\label{Methods}
-
 \subsection{LS - least Square Method}
-%\label{Methode nach den kleinsten Quadraten:}
+
 Bei dieser Methode wird das gemessene EEG-Signal ($y(n)$) als Superposition des EOG-Signals ($u(n)$) und dem echten EEG-Signals
  ($w(n)$) betrachtet. Man misst dabei das EEG-Signal ($y(n)$) und das EOG-Signal ($u(n)$). Die Amplitude des Störsignals ist wesentlich höher als die des
  echten EEG-Signals. Es wird nun das EEG signal wie eine störung behandelt, wie in \ref{eq:LS-Method} zu sehn ist. Man verwendet nun die Methode der Kleinsten
  Quadratet um den Faktor $b_i$ zu berechnen! Mit den nun bekannten Faktoren kann man das echte EEG-Signal ($w(n)$) berechnen.
-(In der Berechnung muss man die Zeit $t$ diskret darstellen, was wir mit $n$  machen.)
+(In der Berechnung muss man die Zeit $t$ diskret darstellen, was wir mit $n$  machen.)~\cite{Thulasidas2004}
 \begin{equation} \label{eq:LS-Method}
  y(n) =  \sum_{i=1}^{N} b_i * u_i(n) + w(n)
 \end{equation}
@@ -201,23 +195,31 @@ Man hat dazu aber folgende Annahmen treffen müssen:
  \item Alle Artefakte haben den selben $b_i$ faktor.
 \end{itemize}
 
+
+
+
 \subsection{DM - Differential Method}
+
 Die Differenz Methode leitet sich von der LS-Methode ab. Durch diese Methode beseitigt man die Zeitliche abhängigkeit der aufeinanderfolgenden Samples(Daten).
-
-
+~\cite{Thulasidas2004}
 \begin{equation} \label{eq:DM}
  y(n) = y(n − 1) + \sum_{i=0}^{N}  b_i * (u_i(n) - u(n - 1)) + w(n) - w(n - 1)
 \end{equation}
+
+
 
 \subsection{BSS - Blind Source Seperation}
 Die gemessenen EEG-Daten ($Y$-Matrix) werden in ihre Komponenten zerlegt in dem man sie mit einer speziellen (Dreh)-Matrix $W$ multipliziert \ref{eq:BSS}.
 Es werden die EOG-Artefakte identifiziert indem man die Korrlation mit den gemessenen EOG-Signaldaten  berechnent. Die Komponenten die mit EOG-Signalen übereinstimmen werden
 verworfen. Aus den übrigenen Komponeneten werden nun die EEG-Daten ohne Störungen wieder zusammengesetzt.
 $W$
+~\cite{Thulasidas2004}
 
 \begin{equation} \label{eq:BSS}
  S = W*Y
 \end{equation}
+
+
 
 
 %% The Appendices part is started with the command \appendix;
