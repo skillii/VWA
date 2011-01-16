@@ -23,6 +23,7 @@
 %%
 \documentclass[preprint,12pt]{elsarticle}
 
+
 %% Use the option review to obtain double line spacing
 %% \documentclass[preprint,review,12pt]{elsarticle}
 
@@ -45,6 +46,7 @@
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage[utf8]{inputenc}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -206,7 +208,7 @@ Man hat dazu aber folgende Annahmen treffen müssen:
 Die Differenz Methode leitet sich von der LS-Methode ab. Durch diese Methode beseitigt man die Zeitliche abhängigkeit der aufeinanderfolgenden Samples(Daten).
 ~\cite{Thulasidas2004}
 \begin{equation} \label{eq:DM}
- y(n) = y(n − 1) + \sum_{i=0}^{N}  b_i * (u_i(n) - u(n - 1)) + w(n) - w(n - 1)
+ y(n) = y(n - 1) + \sum_{i=0}^{N}  b_i * (u_i(n) - u(n - 1)) + w(n) - w(n - 1)
 \end{equation}
 
 
