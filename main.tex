@@ -140,15 +140,42 @@
 
 Um EEG-Signalverläufe sinnvoll für ein BCI verwenden zu können, ist eine Vorverarbeitung notwendig, da 
 den Signalverläufen Störeinflüsse überlagert sind.
-Zu dieser Vorverarbeitung gehört das Herausfiltern von Artefakten. Solche Artefakte sind unter
-anderem EOG- bzw. EMG-Artefakte.
+Solche Störeinflüsse sind unter anderem EOG- bzw. EMG-Artefakte. 
 Unter EOG Artefakten versteht man die Störungen, welche durch Augenbewegungen hervorgerufen werden.
 Sie entstehen, durch eine permanente Potentialdifferenz von ca. 10-30mV zwischen Vorder- und Hinterseite
-des Auges. Das Bewegen der Augen führt somit zu Störungen, welche dem EEG Signal überlagert sind. \cite{Chen2004}
-EMG schließt sämtlichen anderen Muskelaktivitäten mit ein. Ein Beispiele für solche Artefakte sind
-Kauen, Schlucken, Athemzüge, den Kopf oder die Stirn bewegen. Ein vollständiges Herausfiltern der Artefakte ist nicht immer möglich,
+des Auges. \cite{Chen2004} Das Bewegen der Augen führt somit zu Störungen, welche dem EEG Signal überlagert sind.
+EMG schließt sämtliche andere Muskelaktivitäten mit ein. Ein Beispiele für solche Artefakte sind
+Kauen, Schlucken, Athemzüge, den Kopf oder die Stirn bewegen.
+In erster Linie wird man einmal versuchen die Bereiche, in denen Störeinflüsse überlagert sind, ausfindig zu machen.
+Eine simple Lösung wäre es, diese zeitlichen Bereiche schlicht und einfach zu ignorieren. Dadurch verliert man
+sehr viele wertvolle Information. Aus diesem Grund ist man natürlich bemüht die Überlagerten Störungen herauszufiltern.
+Ein vollständiges Herausfiltern der Artefakte ist nicht immer möglich,
 wobei es manchmal auch schon Ausreichend ist Artefakte zu erkennen und dementsprechend zu Kennzeichnen.
+Speziell bei den ersten Trainingsphasen einer BCI treten besonders viele EMG Artefakte auf. Es muss also sehr darauf
+geachtet werden, dass man als Informationsquelle die wirklichen EEG Signale und nicht irgendwelche Artefakte verwendet.
 ~\cite{Pfurtscheller2007}
+
+\section{Methoden}
+
+\subsection{Inverse Filterung - Autoregressives Modell}
+
+Mithilfe der inversen Filterung kann man EMG Artefakte relativ gut erkennen. Dabei werden zuerst die EEG-Signale
+mithilfe eines autoregressives Modells modelliert. Bei einem autoregressiven Modell wird ein Gauss-Verteiltes
+Rauschen durch eine Filterstruktur geschickt. Die Filterparameter können beispielsweise mithilfe der Burg Methode
+bestimmt werden. Beim Bestimmen der Filterkoeffizienten ist darauf zu achten, dass ein Artefaktfreies EEG-Signal
+verwendet wird.
+
+Das Filter hat dabei folgende mathematische Struktur, wobei $v_t$ das Gauss-Verteilte Rauschen, $y_t$ der
+Filterausgang zum Zeitpunkt $t$ und $a_i$ die Filterkoeffizienten sind:
+
+\begin{equation}
+y_t = \sum_i a_i \cdot y_{t-i} + v_t
+\end{equation}
+
+Möchte man nun herausfinden, ob ein EEG-Signalverlauf mit EMG Artefakten kontaminiert ist, verwendet man die Inverse
+des vorhin beschriebenen Filters und wendet sie auf den Signalverlauf an.
+
+
 
 
 
