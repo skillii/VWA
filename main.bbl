@@ -1,7 +1,13 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Inproceedings
+\bibitem[{Chen and Newman(2004)}]{Chen2004}
+\bibinfo{author}{Y.~Chen}, \bibinfo{author}{W.~S. Newman},
+\newblock \bibinfo{title}{A human-robot interface based on electrooculography},
+\newblock in: \bibinfo{booktitle}{Proc. IEEE Int. Conf. Robotics and Automation
+  ICRA '04}, volume~\bibinfo{volume}{1}, pp. \bibinfo{pages}{243--248}.
 %Type = Article
 \bibitem[{Pfurtscheller(2007)}]{Pfurtscheller2007}
 \bibinfo{author}{R.~S. A. S. F. L. H. B. J. J.~G. Pfurtscheller},
