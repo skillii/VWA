@@ -118,6 +118,8 @@
 \begin{abstract}
 %% Text of abstract
 
+Diese Paper soll einen kurzen Überblick über einige Methoden zur Erkennung bzw. Entfernung von Artefakten bieten.
+Dabei werden EMG und EOG Artefakte behandelt.
 \end{abstract}
 
 \begin{keyword}
@@ -179,6 +181,16 @@ des vorhin beschriebenen Filters und wendet sie auf den Signalverlauf an. Dieses
 Überschreitet der RMS dieses Signals einen bestimmten Schwellenwert, so kann man einen bestimmten Bereich als Artefakt markieren.
 ~\cite{Pfurtscheller2007}
 
+\subsection{Morphological Component Analysis}
+
+Bei dieser Methode werden die EEG Signale in mehrere Teile zerleg, welche unterschiedliche Formen aufweisen.
+Diese unterschiedlichen Signale können durch verschiedene Basen(z.B. DCT, wavelet, Dirac,..) dargestellt werden.
+
+Spitzen im Signal können durch Muskelaktivität verursacht werden, und können eher über Dirak Impulse dargestellt
+werden, wobei EEG Signale mit einer DCT Basis beschrieben werden können.
+
+Nun kann man die Signale welche den Chraracter einer Muskelaktivität aufweisen verwerfen und man erhält das entstörte EEG Signal.
+\cite{Yong2009}
 
 
 \subsection{LS - least Square Method}
@@ -224,6 +236,9 @@ $W$
  S = W*Y
 \end{equation}
 
+\section{Results}
+
+Wird 
 
 
 

@@ -16,15 +16,12 @@
 \newblock \bibinfo{journal}{Hindawi Publishing Corporation Computational
   Intelligence and Neuroscience}  (\bibinfo{year}{2007}).
 %Type = Inproceedings
-\bibitem[{Thulasidas et~al.(2004)Thulasidas, Guan, Ranganatha, Wu, Zhu, and
-  Xu}]{Thulasidas2004}
-\bibinfo{author}{M.~Thulasidas}, \bibinfo{author}{C.~Guan},
-  \bibinfo{author}{S.~Ranganatha}, \bibinfo{author}{J.~K. Wu},
-  \bibinfo{author}{X.~Zhu}, \bibinfo{author}{W.~Xu},
-\newblock \bibinfo{title}{Effect of ocular artifact removal in brain computer
-  interface accuracy},
-\newblock in: \bibinfo{booktitle}{Proc. 26th Annual Int. Conf. of the IEEE
-  Engineering in Medicine and Biology Society IEMBS '04},
-  volume~\bibinfo{volume}{2}, pp. \bibinfo{pages}{4385--4388}.
+\bibitem[{Yong et~al.(2009)Yong, Ward, and Birch}]{Yong2009}
+\bibinfo{author}{X.~Yong}, \bibinfo{author}{R.~K. Ward}, \bibinfo{author}{G.~E.
+  Birch},
+\newblock \bibinfo{title}{Artifact removal in eeg using morphological component
+  analysis},
+\newblock in: \bibinfo{booktitle}{Proc. IEEE Int. Conf. Acoustics, Speech and
+  Signal Processing ICASSP 2009}, pp. \bibinfo{pages}{345--348}.
 
 \end{thebibliography}
