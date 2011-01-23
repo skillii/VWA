@@ -154,6 +154,68 @@ Inverse des AR-Modells wird auf das EEG Signal angewandt.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                         RAPHIS Part:
 
+\frame{\frametitle{Least Square Method}
+
+\begin{block}{Superposition:}
+\begin{equation}
+  y(n) =  \sum_{i=1}^{N} b_i * u_i(n) + w(n)
+\end{equation}
+\end{block}
+
+\begin{block}{Fehler durch Vereinfachungen}
+ \begin{itemize}
+ \item EEG  Gleichanteiles frei
+ \item Frequenz- und Zeitunabhängig von $b_i$.
+ \item EOG- und echtes EEG-Signal sind voneinander unabhängig.
+ \item Alle Artefakte haben den selben Faktor  $b_i$ .
+\end{itemize}
+\end{block}
+
+}%endframe
+
+\frame{\frametitle{Differential Method}
+\begin{block}{Differential Method}
+ Abgeleitet aus der LS-Methode.
+
+Verbessert durch beseitigung der zeitliche Abhängigkeit von Samples
+\end{block}
+
+
+\begin{block}{Beseitigung der Abhängigkeit}
+ \begin{equation} \label{eq:DM}
+ y(n) = y(n - 1) + \sum_{i=0}^{N}  b_i * (u_i(n) - u(n - 1)) + w(n) - w(n - 1)
+\end{equation}
+\end{block}
+
+
+}%endframe
+
+\frame{\frametitle{Blind Source Seperation}
+\begin{block}{Blind Source Seperation}
+\begin{itemize}
+ \item EEG-Daten in Komponenten zerlegen 
+  \item Korrelation zu EOG-signalen
+  \item Wegfiltern der Korrelierenden Signale.
+\end{itemize}
+
+\end{block}
+}%endframe
+
+\frame{\frametitle{Conclusion and Discussion}
+\begin{block}{asdf}
+Desto besser die Erkennung, desto höher der Aufwand
+
+$\rightarrow$kein Ideales Verfahren!
+
+ Leistungsvergleich schwierig da Methoden für 
+Artefakte unterschiedlichen Ursprungs, unterschiedlich gut geeignet
+
+ Eine Kombination mehrerer Methoden ist denkbar.
+
+keine hundertprozentige Erkennung bzw. Entfernung von Artefakten möglich.
+\end{block}
+
+}%endframe
 
 
 \frame{\frametitle{Ende}
