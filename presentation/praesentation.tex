@@ -25,8 +25,8 @@ again covered={\opaqueness<1->{50}}
 
 
 %--Daten der Titelseite
-\title[Human-Robot Interface]{A Human-Robot Interface \\ Based on \\ Electrooculography}
-\author{Ebner Thomas}
+\title[Artefaktkorrektur]{EMG und EOG Artefaktkorrektur \\ in der \\ BCI-Forschung}
+\author{Ebner Thomas, Hoheneder Raphael}
 \date{\today}
 
 %--Hauptinhalte
@@ -48,21 +48,75 @@ again covered={\opaqueness<1->{50}}
 \section{Übersicht}
 \frame{\frametitle{Übersicht}
 
-\begin{block}{Ziel}
-Einen Robotor mit den Augen steuern
+\begin{block}{Was sind Artefakte?}
+Überlagerte Störeinflüsse.
 \end{block}
 
-\begin{block}{Warum?}
-ca. 2 Millionen Menschen weltweit: Rückenmarksverletzung \\
+\vspace{5mm}
+
+\begin{block}{EOG}
+Störungen durch Bewegung der Augen
 \end{block}
 
-\begin{block}{Wie?}
-Electrooculography: Mittels Elektroden im Gesicht
+\vspace{5mm}
+
+\begin{block}{EMG}
+Störungen durch Muskelbewegungen.
 \end{block}
 
 }%endframe
 
 
+\frame{\frametitle{Übersicht}
+
+\begin{block}{Warum?}
+BCI-Steuerung durch EEG, nicht durch EMG/EOG.
+\end{block}
+
+\vspace{5mm}
+
+\begin{block}{Wie?}
+Entfernung vs. Erkennung
+\end{block}
+
+}%endframe
+
+
+\section{Methoden}
+\frame{\frametitle{Inverse Filterung - Autoregressives Modell}
+
+\begin{block}{Autoregressives Modell}
+\begin{equation}
+y_t = \sum_i a_i \cdot y_{t-i} + v_t
+\end{equation}
+\end{block}
+
+\vspace{5mm}
+
+\begin{block}{Inverse}
+Inverse des AR-Modells wird auf das EEG Signal angewandt.
+\end{block}
+
+}%endframe
+
+\frame{\frametitle{Morphological Component Analysis}
+
+\begin{block}{Zerlegung des Signals}
+\end{block}
+
+
+
+\begin{block}{Basen}
+\begin{itemize}
+ \item DCT
+ \item Wavelet
+ \item Dirac
+ \item ...
+\end{itemize}
+
+\end{block}
+
+}%endframe
 
 
 
