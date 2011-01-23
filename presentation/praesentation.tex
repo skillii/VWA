@@ -1,0 +1,120 @@
+%--Präambel
+\documentclass{beamer}
+
+\usepackage{ngerman}
+\usepackage{graphicx}
+\usepackage{pst-circ}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+
+\usepackage{pst-node}
+\usepackage{pst-plot}
+\usepackage{multido}
+\usepackage[latin1]{inputenc}
+%\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{wrapfig}
+
+%Verwendetes Template
+\usetheme{Madrid}
+
+%Transparenz nicht aufgedeckter bzw. wieder verdeckter Elemente festlegen
+\setbeamercovered{
+still covered={\opaqueness<1->{10}},
+again covered={\opaqueness<1->{50}}
+}
+
+
+%--Daten der Titelseite
+\title[Human-Robot Interface]{A Human-Robot Interface \\ Based on \\ Electrooculography}
+\author{Ebner Thomas}
+\date{\today}
+
+%--Hauptinhalte
+\begin{document}
+
+\psset{xunit=0.8cm, yunit=0.8cm}
+\psset{tensioncolor=blue, tensionlabelcolor=blue}
+\psset{intensitycolor=red, intensitylabelcolor=red}
+
+%%% Titelseite anzeigen
+\frame{\titlepage}
+
+% Inhaltsübersicht
+\frame{\frametitle{Inhaltsübersicht} 
+\tableofcontents
+}%endframe
+
+
+\section{Übersicht}
+\frame{\frametitle{Übersicht}
+
+\begin{block}{Ziel}
+Einen Robotor mit den Augen steuern
+\end{block}
+
+\begin{block}{Warum?}
+ca. 2 Millionen Menschen weltweit: Rückenmarksverletzung \\
+\end{block}
+
+\begin{block}{Wie?}
+Electrooculography: Mittels Elektroden im Gesicht
+\end{block}
+
+}%endframe
+
+
+
+
+
+% \frame{\frametitle{Mustererkennung}
+% 
+% 
+% \begin{columns}
+% 
+% \begin{column}{5cm}
+% \begin{block}{Fixpunkte}
+% Blickwinkel: gewisse Zeit innerhalb eines gewissen Bereichs
+% \end{block}
+% 
+% \begin{block}{Zwinkern}
+%  Erkennen des Zwinkerns, \\
+%  Unterscheidung zwischen verschiedenen Typen
+% \end{block}
+% 
+% \end{column}
+% 
+% 
+% \begin{column}{6.5cm}
+% \begin{figure}[ht]
+%  \centering
+%  \includegraphics[width=6.5cm]{./pics/blink.png}
+%  % eye.png: 617x341 pixel, 72dpi, 21.76x12.03 cm, bb=0 0 617 341
+%  \caption{Signalverlauf beim Zwinkern}
+% \end{figure}
+% \end{column}
+% 
+% \end{columns}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                         RAPHIS Part:
+
+
+
+\frame{\frametitle{Ende}
+
+\begin{center}
+\begin{huge}
+ Danke für die \\
+ \vspace{1cm}
+ Aufmerksamkeit!
+\end{huge}
+\end{center}
+}
+
+
+
+
+
+\end{document}
